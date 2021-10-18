@@ -19,7 +19,7 @@ Notice the **IP address**, which is from the proxy app. If the proxy app is set 
 ## Create shared Azure Resources
 
 > Work in progress:
-> 
+>
 > Monitoring is not set up yet, but the resources are created in the steps below.
 
 ```Powershell
@@ -95,7 +95,7 @@ az appservice plan create `
 
 
 # Create the Azure App instances
-# To list runtines, use: az webapp list-runtimes
+# To list runtimes, use: az webapp list-runtimes
 az webapp create `
   --name $apiAppName `
   --plan $appPlanName `
@@ -109,6 +109,7 @@ az webapp create `
   --resource-group $resourceGroup
 
 ```
+
 ## Creating the app projects
 
 > The apps are already created in this repository, but if you would like to start fresh, here are some commands to get you starting
