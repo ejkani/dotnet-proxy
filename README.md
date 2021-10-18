@@ -4,9 +4,9 @@ Quite often it is useful to manage both inbound- and outbound- traffic to- and f
 
 ## Use Cases
 
-* Use with `Azure Datafactory` REST Api, which has somewhat limited connection options. Maybe the outbound Datafactory call need to have a static IP address, which isn't supported out-of-the box.
-* Use with `Azure Synapse` REST Api.
-* Use with any outbound api calls that needs to have one managed/static IP address due to Ip approve/safe list.
+* Use with `Azure Datafactory` REST Api, which has somewhat limited connection options. When the outbound Datafactory REST Api call need to have a static IP address due to the destination IP restrictions, which isn't supported out-of-the box by Azure.
+* Use with `Azure Synapse` REST Api, the same way as `Azure Datafactory`.
+* Use with any outbound api calls that needs to have one managed/static IP address due to the destination Ip approve- / safe-list.
 
 ![Api App response via the proxy](./Docs/Images/ApiAppResponse.png)
 
