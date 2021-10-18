@@ -2,11 +2,25 @@
 
 Quite often it is useful to manage both inbound- and outbound- traffic to- and from- an application. This repository investigates some use-cases where a proxy is useful.
 
+## Use Cases
+
+* Use with `Azure Datafactory` REST Api, which has somewhat limited connection options. Maybe the outbound Datafactory call need to have a static IP address, which isn't supported out-of-the box.
+* Use with `Azure Synapse` REST Api.
+* Use with any outbound api calls that needs to have one managed/static IP address due to Ip approve/safe list.
+
+![Api App response via the proxy](./Docs/Images/ApiAppResponse.png)
+
+Notice the **IP address**, which is from the proxy app. If the proxy app is set up with a **custom domain**, the Ip address can be made **static**. In those cases where the destination is keeping an **"IP Approve list"**, this is one way of solving this.
+
 **NOTE:**
 
-- All steps below are executed from the root folder (the same folder as this README file)
+* All steps below are executed from the root folder (the same folder as this README file)
   
 ## Create shared Azure Resources
+
+> Work in progress:
+> 
+> Monitoring is not set up yet, but the resources are created in the steps below.
 
 ```Powershell
 
