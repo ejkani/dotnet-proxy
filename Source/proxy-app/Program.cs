@@ -37,9 +37,18 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.Map("/{**catch-all}", async httpContext =>
     {
+        // Find the routing config from e.g. config file or database.
+        var myApiDemoKey = "/my_apidemo_com"; // This could illustrate using a domain as a switch key. E.g. "/my_apidemo_key" maps to the "my.apidemo.com" address
+        var destinationPrefix = "";
+
+        if (httpContext.Request.Path.Value?.StartsWith(myApiDemoKey) ?? false)
+        {
+            destinationPrefix = app.Configuration["ApiAppUrl"];
+        }
+
         var error = await forwarder.SendAsync(
             httpContext,
-            app.Configuration["ApiAppUrl"], 
+            destinationPrefix, 
             httpClient,
             requestOptions,
             transformer);
