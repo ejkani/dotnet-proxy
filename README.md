@@ -2,6 +2,16 @@
 
 Quite often it is useful to manage both inbound- and outbound- traffic to- and from- an application. This repository investigates some use-cases where a proxy is useful.
 
+These examples uses a preview of the `YARP` project: <https://microsoft.github.io/reverse-proxy/>
+
+## Flow example
+
+We can use one proxy to forward requests to different sites based on a simple config. In this example we want the request to go to **Site A** and we need a simple way of saying that to the proxy. We could use `Http Headers`, but in this case, it is simpler to just use the `starting path` as a switch-value that the proxy can use.
+
+![Call to Site A](./Docs/Diagrams/forward-proxy.drawio.svg)
+
+The request and response flow for a call to **Site A**: **1 -> 2a -> 3a -> 4**
+
 ## Use Cases
 
 * Use with `Azure Datafactory` REST Api, which has somewhat limited connection options. When the outbound Datafactory REST Api call need to have a static IP address due to the destination IP restrictions, which isn't supported out-of-the box by Azure.
